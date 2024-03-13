@@ -1,4 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    background-color: black;
+}
+.primary-colour{
+    background-color: #009286;
+}
+.secondery-colur{
+    background-color: #90006F;
+   
+}
 
