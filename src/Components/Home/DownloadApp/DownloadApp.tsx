@@ -33,7 +33,7 @@ const DownloadApp = () => {
           <div>
             <Link
               href=""
-              className="flex items-center gap-2 bg-teal-400 p-2 rounded"
+              className="flex items-center gap-2 bg-teal-500 p-2 rounded"
             >
               {" "}
               <FaGooglePlay className="text-3xl" />
