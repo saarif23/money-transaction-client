@@ -1,11 +1,11 @@
 import DownloadApp from "@/Components/Home/DownloadApp/DownloadApp";
-import Image from "next/image";
+import Navbar from "@/Components/shared/Navbar/Navbar";
 
 export default function Home() {
   return (
     <main>
-      <h1 className="text-center">Welcome Everyone</h1>
-     <DownloadApp></DownloadApp>
+      <Navbar />
+      <DownloadApp></DownloadApp>
     </main>
   );
 }

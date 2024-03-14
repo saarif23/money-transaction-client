@@ -1,14 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body{
     background-color: black;
 }
-.primary-colour{
+
+.primary-color{
     background-color: #009286;
 }
-.secondery-colur{
+
+.secondary-color{
     background-color: #90006F;
-   
 }
 
