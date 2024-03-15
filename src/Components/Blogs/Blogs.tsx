@@ -36,7 +36,7 @@ const Blogs = () => {
               </h2>
               <p className="text-lg font-normal text-justify">
                 Lorem ipsum dolor sit amet consectetur adipisc elit vitae
-                commodo nunc vel quis edout habitant libero text ipsum amet ...
+                commodo nunc vel quis edout habitant libero text ipsum amet ....
                 <span className="text-primary cursor-pointer urderline">
                   Read More
                 </span>
