@@ -6,8 +6,8 @@ import Navbar from "@/Components/shared/Navbar/Navbar";
 export default function Home() {
   return (
     <main>
-      <DownloadApp></DownloadApp>
-      <TransactionCategories></TransactionCategories>
+      <DownloadApp />
+      <TransactionCategories />
       <WhyChooseUs />
     </main>
   );
