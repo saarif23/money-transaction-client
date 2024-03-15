@@ -50,7 +50,6 @@ const NavBar = () => {
                         <div className="hidden gap-4 lg:block">{navItems}</div>
                         <span
                             className="flex lg:hidden"
-                            type="button"
                             onClick={() => setIsOpen(!isOpen)}
                         >
                             <CiMenuFries />
@@ -61,9 +60,7 @@ const NavBar = () => {
                             position="right"
                         >
                             <div className="w-screen demo-content">
-                                <span
-                                    type="button"
-                                    className="rounded-lg hover:scale-105 hover:bg-gray-400"
+                                <span className="rounded-lg hover:scale-105 hover:bg-gray-400"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <IoMdClose size={30} className="text-white" />

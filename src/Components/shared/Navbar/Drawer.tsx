@@ -1,21 +1,25 @@
 import { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { FocusTrap } from "focus-trap-react";
+import FocusTrap from "focus-trap-react";
 import cn from "classnames";
 import useMountTransition from "./useMountTransition";
 
-function createPortalRoot() {
+interface DrawerProps {
+  isOpen: boolean;
+  children: React.ReactNode;
+  className?: string;
+  onClose: () => void;
+  position?: "left" | "right"; // Define possible positions
+  removeWhenClosed?: boolean;
+}
+
+function createPortalRoot(): HTMLDivElement {
   const drawerRoot = document.createElement("div");
   drawerRoot.setAttribute("id", "drawer-root");
-
   return drawerRoot;
 }
 
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/building-a-drawer-component-with-react-portals
- */
-const Drawer = ({
+const Drawer: React.FC<DrawerProps> = ({
   isOpen,
   children,
   className,
@@ -31,9 +35,9 @@ const Drawer = ({
 
   // Append portal root on mount
   useEffect(() => {
-    bodyRef.current.appendChild(portalRootRef.current);
-    const portal = portalRootRef.current;
-    const bodyEl = bodyRef.current;
+    bodyRef.current!.appendChild(portalRootRef.current!);
+    const portal = portalRootRef.current!;
+    const bodyEl = bodyRef.current!;
 
     return () => {
       // Clean up the portal when drawer component unmounts
@@ -47,9 +51,9 @@ const Drawer = ({
   useEffect(() => {
     const updatePageScroll = () => {
       if (isOpen) {
-        bodyRef.current.style.overflow = "hidden";
+        bodyRef.current!.style.overflow = "hidden";
       } else {
-        bodyRef.current.style.overflow = "";
+        bodyRef.current!.style.overflow = "";
       }
     };
 
@@ -58,7 +62,7 @@ const Drawer = ({
 
   // Allow Escape key to dismiss the drawer
   useEffect(() => {
-    const onKeyPress = (e) => {
+    const onKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose();
       }
@@ -84,7 +88,7 @@ const Drawer = ({
         className={cn("drawer-container", {
           open: isOpen,
           in: isTransitioning,
-          className,
+          [className!]: !!className, // Only add className if provided
         })}
       >
         <div className={cn("drawer", position)} role="dialog">
@@ -93,7 +97,7 @@ const Drawer = ({
         <div className="backdrop" onClick={onClose} />
       </div>
     </FocusTrap>,
-    portalRootRef.current
+    portalRootRef.current!
   );
 };
 
