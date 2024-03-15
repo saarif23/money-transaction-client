@@ -7,7 +7,7 @@ import { FaGooglePlay } from "react-icons/fa6";
 const DownloadApp = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center primary-colour md:gap-24  bg-black px-0 md:px-6 lg:px-0 py-10">
-      <div className="text-white   p-6 space-y-6">
+      <div className="text-white p-6 space-y-6">
         <h2 className="text-5xl lg:text-6xl font-bold ">
           Download Our{" "}
           <span className="text-secondary">  Mobile Banking  <br />App</span>
