@@ -15,19 +15,19 @@ function createPortalRoot() {
  * Read the blog post here:
  * https://letsbuildui.dev/articles/building-a-drawer-component-with-react-portals
  */
-const Drawer = ({
-  isOpen,
-  children,
-  className,
-  onClose,
-  position = "left",
-  removeWhenClosed = true,
-}) => {
-  const bodyRef = useRef(document.querySelector("body"));
-  const portalRootRef = useRef(
-    document.getElementById("drawer-root") || createPortalRoot()
-  );
-  const isTransitioning = useMountTransition(isOpen, 300);
+// const Drawer = ({
+//   isOpen,
+//   children,
+//   className,
+//   onClose,
+//   position = "left",
+//   removeWhenClosed = true,
+// }) => {
+//   const bodyRef = useRef(document.querySelector("body"));
+//   const portalRootRef = useRef(
+//     document.getElementById("drawer-root") || createPortalRoot()
+//   );
+//   const isTransitioning = useMountTransition(isOpen, 300);
 
   // Append portal root on mount
   useEffect(() => {

@@ -5,16 +5,7 @@ import cashOut from "../../../../public/images/cashout.webp";
 import mobileRecharge from "../../../../public/images/mobileRecharge.webp";
 import payment from "../../../../public/images/payment.webp";
 import paybil from "../../../../public/images/paybil.webp";
-import adMoney from "../../../../public/images/addmoney.webp";
-import savings from "../../../../public/images/savings.webp";
-import loan from "../../../../public/images/loan.webp";
-import transferMoney from "../../../../public/images/transfermoney.webp";
-import requestMoney from "../../../../public/images/requestMoney.webp";
-import remittance from "../../../../public/images/remontens.webp";
-import microfinance from "../../../../public/images/microfinenc.webp";
-import educationFee from "../../../../public/images/education.webp";
-import donation from "../../../../public/images/donation.webp";
-import insurance from "../../../../public/images/insorence.webp";
+
 
 const TransactionCategories = () => {
   return (
