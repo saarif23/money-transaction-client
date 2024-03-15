@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import FocusTrap from "focus-trap-react";
+import { FocusTrap } from "focus-trap-react";
 import cn from "classnames";
 import useMountTransition from "./useMountTransition";
 
@@ -21,7 +21,7 @@ const Drawer = ({
   className,
   onClose,
   position = "left",
-  removeWhenClosed = true
+  removeWhenClosed = true,
 }) => {
   const bodyRef = useRef(document.querySelector("body"));
   const portalRootRef = useRef(
@@ -84,7 +84,7 @@ const Drawer = ({
         className={cn("drawer-container", {
           open: isOpen,
           in: isTransitioning,
-          className
+          className,
         })}
       >
         <div className={cn("drawer", position)} role="dialog">
