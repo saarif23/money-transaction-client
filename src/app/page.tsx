@@ -7,10 +7,9 @@ import Navbar from "@/Components/shared/Navbar/Navbar";
 export default function Home() {
   return (
     <main>
-      <h1 className="text-center">Welcome Everyone</h1> 
+      <Navbar />
       <Homes/>  
       <TransactionCategories />
-      <Navbar />
       <DownloadApp />
       <WhyChooseUs />
     

@@ -36,7 +36,7 @@ const NavBar = () => {
     );
 
     return (
-        <div className={`fixed z-10 w-full ${scrolled ? "bg-white text-white" : "bg-black text-white"}`}>
+        <div className={`fixed z-10 w-full ${scrolled ? "bg-black text-white" : "bg-black text-white"}`}>
             <div className="max-w-screen-xl mx-auto px-6 md:px-16 xl:px-0">
                 <div className="py-1">
                     <div className="flex items-center justify-between">
