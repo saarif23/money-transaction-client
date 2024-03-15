@@ -3,12 +3,14 @@ import choose2 from "../../../assets/choose-2.jpg";
 import choose3 from "../../../assets/choose-3.jpg";
 import { MdOutlineCheckCircle } from "react-icons/md";
 import Image from "next/image";
+import Container from "@/Components/shared/Container";
 
 const WhyChooseUs = () => {
   return (
-    <div className="flex flex-col lg:flex-row max-w-screen-xl mx-auto gap-12 px-6 2xl:px-0 my-6 md:my-8 lg:my-12">
+   <Container>
+     <div className="flex flex-col lg:flex-row gap-12 my-6 md:my-8 lg:my-12">
       <div className="lg:w-3/4 space-y-6">
-        <h1 className="secondary-color">Why Choose Us</h1>
+        <h1 className="text-secondary">Why Choose Us</h1>
         <h1 className="text-white text-3xl font-bold">
           Moving And Living Abroad Just Got Simpler Get Paid Like A Local
         </h1>
@@ -50,6 +52,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
     </div>
+   </Container>
   );
 };
 

@@ -1,81 +1,154 @@
 "use client";
-import { useEffect, useState } from "react";
-import Drawer from "./Drawer";
-import "./styles.css";
-import { CiMenuFries } from "react-icons/ci";
-import { IoMdClose } from "react-icons/io";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
+import {
+  Button,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Stack,
+  Typography,
+} from "@mui/material";
+
 import Link from "next/link";
 
-const NavBar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+//drawer
+import { MdMenu } from "react-icons/md";
+import { MdClose } from "react-icons/md";
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const offset = window.scrollY;
-            if (offset > 200) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+const drawerWidth = 240;
+const navItems = [
+  {
+    route: "Home",
+    pathName: "/",
+  },
+  {
+    route: "blogs",
+    pathName: "/blogs",
+  },
+  {
+    route: "About",
+    pathName: "/about",
+  },
+  {
+    route: "Contact",
+    pathName: "/contact",
+  },
+];
 
-        window.addEventListener("scroll", handleScroll);
+function Navbar() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+  const drawer = (
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center", marginTop: "20px" }}
+    >
+      <Divider />
+      <List>
+        {navItems.map((item, idx) => (
+          <Link key={idx} href={item.pathName}>
+            <ListItem
+              disablePadding
+              sx={{
+                "& :hover": {
+                  color: "red",
+                  fontWeight: "800",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  textAlign: "center",
+                }}
+              >
+                <ListItemText primary={item.route} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+      </List>
+    </Box>
+  );
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    const navItems = (
-        <div className="flex flex-col items-center justify-center gap-6 my-6 lg:flex-row lg:my-0 lg:gap-2 xl:gap-6">
-            <Link href="/">
-                <span onClick={() => setIsOpen(false)}>Home</span>
-            </Link>
-        </div>
-    );
-
-    return (
-        <div className={`fixed z-10 w-full ${scrolled ? "bg-black text-white" : "bg-black text-white"}`}>
-            <div className="max-w-screen-xl mx-auto px-6 md:px-16 xl:px-0">
-                <div className="py-1">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <Link href="/">
-                                <div className="flex gap-1">
-                                    <h1 className="text-2xl font-bold md:text-4xl">MoneyTransaction</h1>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="hidden gap-4 lg:block">{navItems}</div>
-                        <span
-                            className="flex lg:hidden"
-                            type="button"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            <CiMenuFries />
-                        </span>
-                        <Drawer
-                            isOpen={isOpen}
-                            onClose={() => setIsOpen(false)}
-                            position="right"
-                        >
-                            <div className="w-screen demo-content">
-                                <span
-                                    type="button"
-                                    className="rounded-lg hover:scale-105 hover:bg-gray-400"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    <IoMdClose size={30} className="text-white" />
-                                </span>
-                                {navItems}
-                            </div>
-                        </Drawer>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default NavBar;
+  return (
+    <>
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: "#009286",
+        }}
+      >
+        <Container
+        
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "10px 5px",
+          }}
+        >
+          <Typography variant="h5" color="white">
+            Navbar
+          </Typography>
+          <Box
+            sx={{
+              "& button:hover": {
+                color: "#90006F",
+                textDecoration: "underline",
+              },
+              display: { xs: "none", md: "block" },
+            }}
+          >
+            {navItems.map((item) => (
+              <Link key={item} href={item.pathName}>
+                <Button sx={{ color: "white" }}>{item.route}</Button>
+              </Link>
+            ))}
+          </Box>
+          <div className="max-lg:block lg:hidden">
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2 }}
+            >
+              {mobileOpen ? <MdClose /> : <MdMenu />}
+            </IconButton>
+          </div>
+        </Container>
+      </AppBar>
+      <nav>
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            display: { xs: "block", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+    </>
+  );
+}
+export default Navbar;
