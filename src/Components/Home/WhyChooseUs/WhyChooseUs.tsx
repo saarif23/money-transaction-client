@@ -8,7 +8,7 @@ const WhyChooseUs = () => {
   return (
     <div className="flex flex-col lg:flex-row max-w-screen-xl mx-auto gap-12 px-6 2xl:px-0 my-6 md:my-8 lg:my-12">
       <div className="lg:w-3/4 space-y-6">
-        <h1 className="secondary-color">Why Choose Us</h1>
+        <h1 className="text-secondary">Why Choose Us</h1>
         <h1 className="text-white text-3xl font-bold">
           Moving And Living Abroad Just Got Simpler Get Paid Like A Local
         </h1>
