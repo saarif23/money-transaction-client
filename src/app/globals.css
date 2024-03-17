@@ -8,10 +8,17 @@ body{
 }
 
 .primary-color{
-    color: #009286;
+    background-color: #009286;
 }
 
 .secondary-color{
+    background-color: #90006F;
+}
+
+.text-primary{
+    color: #009286;
+}
+.text-secondary{
     color: #90006F;
 }
 

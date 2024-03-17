@@ -2,17 +2,20 @@ import DownloadApp from "@/Components/Home/DownloadApp/DownloadApp";
 import Homes from "@/Components/Home/Homes";
 import TransactionCategories from "@/Components/Home/TransactionCategories/TransactionCategories";
 import WhyChooseUs from "@/Components/Home/WhyChooseUs/WhyChooseUs";
-import Navbar from "@/Components/shared/Navbar/Navbar";
-
+import Footer from "@/Components/Home/Footer/Footer"
 export default function Home() {
   return (
     <main>
-      <Navbar />
-      <Homes/>  
-      <TransactionCategories />
+   
+
+        <Homes /> 
+     
       <DownloadApp />
-      <WhyChooseUs />
-    
+      <TransactionCategories />
+      <WhyChooseUs /> 
+   <div className="mt-96">
+        <Footer />
+   </div>
     </main>
   );
 }
