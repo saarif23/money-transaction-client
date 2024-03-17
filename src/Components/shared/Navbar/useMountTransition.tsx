@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const useMountTransition = (isMounted, unmountDelay) => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
+const useMountTransition = (isMounted: boolean, unmountDelay: number) => {
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   useEffect(() => {
-    let timeoutId;
+    let timeoutId: NodeJS.Timeout;
 
     if (isMounted && !isTransitioning) {
       setIsTransitioning(true);
@@ -14,7 +14,7 @@ const useMountTransition = (isMounted, unmountDelay) => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [unmountDelay, isMounted, isTransitioning]);
+  }, [isMounted, isTransitioning, unmountDelay]);
 
   return isTransitioning;
 };
