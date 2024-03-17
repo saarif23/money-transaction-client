@@ -18,7 +18,7 @@ import insurance from "../../../../public/images/insorence.webp";
 
 const TransactionCategories = () => {
   return (
-    <div className="my-16 px-8 lg:px-16">
+    <div className="mt-40 px-8 lg:px-16 ">
       <h2 className="text-white text-4xl font-semibold text-center mb-8">
         Transaction Categories
       </h2>
